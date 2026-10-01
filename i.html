@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Para Tomatito ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+
+    background:
+        radial-gradient(
+            circle at 50% 105%,
+            #194865 0%,
+            #0b2740 32%,
+            #071625 55%,
+            #03080f 80%,
+            #010306 100%
+        );
+}
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.pantalla{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease,
+        filter 1s ease;
+}
+
+.oculto{
+    opacity:0;
+    pointer-events:none;
+    transform:scale(1.06);
+    filter:blur(10px);
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+#inicio{
+    z-index:20;
+    overflow:hidden;
+    padding:25px;
+}
+
+.contenido-inicio{
+    position:relative;
+    z-index:10;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    transform:translateY(-8vh);
+}
+
+.mini{
+    margin-bottom:15px;
+
+    font-size:13px;
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#71d7ff;
+
+    text-shadow:
+        0 0 15px rgba(60,190,255,.4);
+}
+
+#inicio h1{
+    margin-bottom:18px;
+
+    font-size:clamp(42px,10vw,82px);
+    line-height:1;
+    font-weight:900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #76d8ff,
+            #b4eeff,
+            #ffffff
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+#inicio p{
+    max-width:540px;
+
+    margin-bottom:30px;
+
+    color:#d1deeb;
+
+    font-size:clamp(15px,4vw,19px);
+    line-height:1.65;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.6);
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.boton-principal{
+    border:none;
+
+    padding:17px 38px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+    font-weight:800;
+
+    color:#061523;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #a8e9ff
+        );
+
+    box-shadow:
+        0 10px 40px rgba(0,170,255,.35),
+        0 0 20px rgba(110,210,255,.25);
+
+    transition:.3s;
+}
+
+.boton-principal:hover{
+    transform:
+        translateY(-4px)
+        scale(1.06);
+}
+
+.boton-principal:active{
+    transform:scale(.96);
+}
+
+
+/* =========================
+   ROSAS AZULES
+========================= */
+
+.rosas-inicio{
+    position:absolute;
+
+    left:0;
+    bottom:-10px;
+
+    width:100%;
+    height:52vh;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+    gap:clamp(8px,5vw,80px);
+
+    z-index:2;
+
+    pointer-events:none;
+}
+
+.rosa-azul{
+    position:relative;
+
+    width:85px;
+    height:300px;
+
+    transform-origin:bottom center;
+
+    animation:
+        crecerRosa
+        2.2s
+        cubic-bezier(.2,.8,.3,1)
+        both;
+}
+
+.rosa-azul:nth-child(1){
+    height:270px;
+    animation-delay:.1s;
+}
+
+.rosa-azul:nth-child(2){
+    height:335px;
+    animation-delay:.25s;
+}
+
+.rosa-azul:nth-child(3){
+    height:375px;
+    animation-delay:.4s;
+}
+
+.rosa-azul:nth-child(4){
+    height:325px;
+    animation-delay:.55s;
+}
+
+.rosa-azul:nth-child(5){
+    height:280px;
+    animation-delay:.7s;
+}
+
+
+/* TALLOS */
+
+.tallo-rosa{
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:7px;
+    height:79%;
+
+    transform:translateX(-50%);
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #123720,
+            #3b9962,
+            #194a31
+        );
+}
+
+
+/* HOJAS */
+
+.hoja-rosa{
+    position:absolute;
+
+    width:50px;
+    height:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b6642,
+            #45a96e
+        );
+
+    border-radius:
+        100% 0
+        100% 0;
+}
+
+.hoja-rosa.izq{
+    left:6px;
+    bottom:80px;
+
+    transform:
+        rotate(25deg)
+        scaleX(-1);
+}
+
+.hoja-rosa.der{
+    right:6px;
+    bottom:145px;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+/* CABEZA */
+
+.cabeza-rosa{
+    position:absolute;
+
+    top:5px;
+    left:50%;
+
+    width:88px;
+    height:88px;
+
+    transform:translateX(-50%);
+
+    animation:
+        balancearRosa
+        3.3s
+        ease-in-out
+        infinite alternate;
+}
+
+
+/* PÉTALOS */
+
+.petalo-azul{
+    position:absolute;
+
+    left:24px;
+    top:20px;
+
+    width:40px;
+    height:55px;
+
+    transform-origin:50% 85%;
+
+    border-radius:
+        60% 60%
+        45% 45%;
+
+    background:
+        linear-gradient(
+            155deg,
+            #d6f5ff 0%,
+            #72d0ff 30%,
+            #288ee8 68%,
+            #1753bb 100%
+        );
+
+    box-shadow:
+        0 0 18px rgba(40,145,255,.4);
+}
+
+.petalo-azul:nth-child(1){
+    transform:rotate(0deg) translateY(-19px);
+}
+
+.petalo-azul:nth-child(2){
+    transform:rotate(60deg) translateY(-19px);
+}
+
+.petalo-azul:nth-child(3){
+    transform:rotate(120deg) translateY(-19px);
+}
+
+.petalo-azul:nth-child(4){
+    transform:rotate(180deg) translateY(-19px);
+}
+
+.petalo-azul:nth-child(5){
+    transform:rotate(240deg) translateY(-19px);
+}
+
+.petalo-azul:nth-child(6){
+    transform:rotate(300deg) translateY(-19px);
+}
+
+.centro-rosa{
+    position:absolute;
+
+    top:30px;
+    left:31px;
+
+    width:27px;
+    height:27px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #c8f1ff 0%,
+            #55bcff 40%,
+            #176fc9 75%
+        );
+
+    box-shadow:
+        0 0 25px rgba(65,175,255,.9);
+}
+
+
+/* =========================
+   LUCES PORTADA
+========================= */
+
+.luz-portada{
+    position:absolute;
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#b9efff;
+
+    box-shadow:
+        0 0 15px #6fd6ff;
+
+    animation:
+        flotarLuz
+        ease-in-out
+        infinite;
+
+    z-index:3;
+}
+
+.luz1{
+    left:10%;
+    top:25%;
+    animation-duration:4s;
+}
+
+.luz2{
+    right:12%;
+    top:32%;
+    animation-duration:5s;
+    animation-delay:1s;
+}
+
+.luz3{
+    left:20%;
+    bottom:35%;
+    animation-duration:4.5s;
+}
+
+.luz4{
+    right:20%;
+    bottom:25%;
+    animation-duration:5.5s;
+}
+
+.luz5{
+    left:48%;
+    top:12%;
+    animation-duration:4.8s;
+}
+
+
+/* =========================
+   COLECCIÓN
+========================= */
+
+#coleccion{
+    justify-content:flex-start;
+
+    overflow-y:auto;
+
+    padding:
+        42px 20px
+        120px;
+
+    z-index:10;
+}
+
+.encabezado{
+    margin-bottom:30px;
+
+    animation:
+        aparecerArriba
+        1.2s ease;
+}
+
+.encabezado span{
+    color:#65d4ff;
+
+    font-size:14px;
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+}
+
+.encabezado h1{
+    margin-top:8px;
+
+    font-size:
+        clamp(35px,8vw,68px);
+}
+
+.encabezado p{
+    margin-top:10px;
+
+    color:#b2c0d0;
+
+    font-size:17px;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.garage{
+    width:min(100%,1100px);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px,1fr)
+        );
+
+    gap:22px;
+
+    z-index:20;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.tarjeta{
+    position:relative;
+
+    min-height:390px;
+
+    padding:
+        15px 15px
+        20px;
+
+    overflow:hidden;
+
+    border-radius:27px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.13),
+            rgba(255,255,255,.035)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.4);
+
+    transition:.35s;
+
+    animation:
+        entradaTarjeta
+        .9s both;
+}
+
+.tarjeta:nth-child(2){
+    animation-delay:.12s;
+}
+
+.tarjeta:nth-child(3){
+    animation-delay:.24s;
+}
+
+.tarjeta:nth-child(4){
+    animation-delay:.36s;
+}
+
+.tarjeta:nth-child(5){
+    animation-delay:.48s;
+}
+
+.tarjeta:nth-child(6){
+    animation-delay:.60s;
+}
+
+.tarjeta:hover{
+    transform:
+        translateY(-8px)
+        scale(1.025);
+
+    border-color:
+        rgba(80,205,255,.65);
+
+    box-shadow:
+        0 23px 65px rgba(0,160,255,.2);
+}
+
+.numero{
+    position:absolute;
+
+    top:15px;
+    right:17px;
+
+    z-index:5;
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size:12px;
+}
+
+
+/* =========================
+   IMÁGENES
+========================= */
+
+.foto-auto{
+    width:100%;
+    height:275px;
+
+    display:block;
+
+    margin:auto;
+
+    object-fit:contain;
+
+    background:transparent;
+
+    filter:
+        drop-shadow(
+            0 14px 22px
+            rgba(0,0,0,.55)
+        );
+
+    transition:.4s;
+}
+
+.tarjeta:hover .foto-auto{
+    transform:
+        scale(1.07)
+        rotate(-2deg);
+}
+
+.tarjeta h3{
+    margin-top:4px;
+
+    font-size:22px;
+}
+
+.tarjeta p{
+    margin-top:6px;
+
+    color:#a6b5c6;
+
+    font-size:13px;
+}
+
+.ver{
+    margin-top:13px;
+
+    color:#67d4ff;
+
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   CARRETERA
+========================= */
+
+.carretera{
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:65px;
+
+    z-index:5;
+
+    background:
+        linear-gradient(
+            #171a1f,
+            #040506
+        );
+
+    border-top:
+        2px solid #29343f;
+}
+
+.linea{
+    position:absolute;
+
+    top:30px;
+
+    width:100%;
+    height:4px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 40px,
+            white 40px,
+            white 85px
+        );
+
+    animation:
+        moverCarretera
+        1s linear infinite;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    background:
+        rgba(0,0,0,.84);
+
+    backdrop-filter:
+        blur(14px);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.4s;
+}
+
+.modal.activo{
+    opacity:1;
+    pointer-events:auto;
+}
+
+.modal-contenido{
+    width:min(470px,95%);
+
+    max-height:92vh;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #192d46,
+            #080f1b
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.17);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.6);
+
+    transform:
+        scale(.78)
+        translateY(40px);
+
+    transition:.4s;
+}
+
+.modal.activo .modal-contenido{
+    transform:
+        scale(1)
+        translateY(0);
+}
+
+.modal-imagen{
+    width:100%;
+    height:350px;
+
+    display:block;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+    background:transparent;
+
+    filter:
+        drop-shadow(
+            0 15px 25px
+            rgba(0,0,0,.55)
+        );
+}
+
+.modal h2{
+    margin-bottom:13px;
+
+    font-size:29px;
+}
+
+.modal p{
+    color:#d0dae6;
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+.cerrar{
+    margin-top:25px;
+
+    padding:
+        13px 28px;
+
+    border:none;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    background:white;
+
+    color:#08111d;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   PARTÍCULAS
+========================= */
+
+.particula{
+    position:fixed;
+
+    bottom:-20px;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    background:#77ddff;
+
+    box-shadow:
+        0 0 14px #4bcfff;
+
+    animation:
+        subirParticula
+        linear infinite;
+}
+
+.corazon{
+    position:fixed;
+
+    bottom:-50px;
+
+    pointer-events:none;
+
+    font-size:20px;
+
+    z-index:4;
+
+    animation:
+        subirCorazon
+        linear forwards;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes crecerRosa{
+    from{
+        opacity:0;
+        transform:scaleY(0);
+    }
+
+    to{
+        opacity:1;
+        transform:scaleY(1);
+    }
+}
+
+@keyframes balancearRosa{
+    from{
+        transform:
+            translateX(-50%)
+            rotate(-5deg);
+    }
+
+    to{
+        transform:
+            translateX(-50%)
+            rotate(5deg);
+    }
+}
+
+@keyframes flotarLuz{
+    0%,100%{
+        opacity:.25;
+
+        transform:
+            translateY(0)
+            scale(.8);
+    }
+
+    50%{
+        opacity:1;
+
+        transform:
+            translateY(-25px)
+            scale(1.5);
+    }
+}
+
+@keyframes aparecerArriba{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes entradaTarjeta{
+    from{
+        opacity:0;
+
+        transform:
+            translateY(45px)
+            scale(.9);
+    }
+
+    to{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes moverCarretera{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-85px);
+    }
+}
+
+@keyframes subirParticula{
+    from{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+@keyframes subirCorazon{
+    from{
+        transform:
+            translateY(0)
+            scale(.6);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(-110vh)
+            scale(1.3)
+            rotate(18deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+    .contenido-inicio{
+        transform:
+            translateY(-12vh);
+    }
+
+    .rosas-inicio{
+        height:47vh;
+        gap:0;
+    }
+
+    .rosa-azul{
+        width:65px;
+    }
+
+    .rosa-azul:nth-child(1){
+        height:220px;
+    }
+
+    .rosa-azul:nth-child(2){
+        height:270px;
+    }
+
+    .rosa-azul:nth-child(3){
+        height:300px;
+    }
+
+    .rosa-azul:nth-child(4){
+        height:265px;
+    }
+
+    .rosa-azul:nth-child(5){
+        height:220px;
+    }
+
+    #coleccion{
+        padding:
+            28px 10px
+            100px;
+    }
+
+    .encabezado h1{
+        font-size:34px;
+    }
+
+    .garage{
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+        gap:10px;
+    }
+
+    .tarjeta{
+        min-height:300px;
+
+        padding:9px;
+    }
+
+    .foto-auto{
+        height:200px;
+    }
+
+    .tarjeta h3{
+        font-size:16px;
+    }
+
+    .tarjeta p{
+        font-size:11px;
+    }
+
+    .ver{
+        font-size:9px;
+    }
+
+    .modal-imagen{
+        height:290px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     PORTADA
+========================= -->
+
+<section id="inicio" class="pantalla">
+
+    <div class="contenido-inicio">
+
+        <div class="mini">
+            Una pequeña sorpresa
+        </div>
+
+        <h1>
+            Para Tomatito ❤️
+        </h1>
+
+        <p>
+            Preparé una pequeña colección de Hot Wheels para ti.
+            Cada uno guarda algo que quería decirte.
+        </p>
+
+        <button
+        class="boton-principal"
+        onclick="abrirColeccion()">
+
+            Apreta aquí 🏎️
+
+        </button>
+
+    </div>
+
+
+    <div class="luz-portada luz1"></div>
+    <div class="luz-portada luz2"></div>
+    <div class="luz-portada luz3"></div>
+    <div class="luz-portada luz4"></div>
+    <div class="luz-portada luz5"></div>
+
+
+    <!-- ROSAS -->
+
+    <div class="rosas-inicio">
+
+
+        <div class="rosa-azul">
+            <div class="tallo-rosa"></div>
+            <div class="hoja-rosa izq"></div>
+            <div class="hoja-rosa der"></div>
+
+            <div class="cabeza-rosa">
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="centro-rosa"></div>
+            </div>
+        </div>
+
+
+        <div class="rosa-azul">
+            <div class="tallo-rosa"></div>
+            <div class="hoja-rosa izq"></div>
+            <div class="hoja-rosa der"></div>
+
+            <div class="cabeza-rosa">
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="centro-rosa"></div>
+            </div>
+        </div>
+
+
+        <div class="rosa-azul">
+            <div class="tallo-rosa"></div>
+            <div class="hoja-rosa izq"></div>
+            <div class="hoja-rosa der"></div>
+
+            <div class="cabeza-rosa">
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="centro-rosa"></div>
+            </div>
+        </div>
+
+
+        <div class="rosa-azul">
+            <div class="tallo-rosa"></div>
+            <div class="hoja-rosa izq"></div>
+            <div class="hoja-rosa der"></div>
+
+            <div class="cabeza-rosa">
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="centro-rosa"></div>
+            </div>
+        </div>
+
+
+        <div class="rosa-azul">
+            <div class="tallo-rosa"></div>
+            <div class="hoja-rosa izq"></div>
+            <div class="hoja-rosa der"></div>
+
+            <div class="cabeza-rosa">
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="petalo-azul"></div>
+                <div class="centro-rosa"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     HOT WHEELS
+========================= -->
+
+<section id="coleccion" class="pantalla oculto">
+
+
+    <div class="encabezado">
+
+        <span>
+            Colección especial
+        </span>
+
+        <h1>
+            Hot Wheels para Tomatito 🏎️
+        </h1>
+
+        <p>
+            Toca cada uno. Hay algo para ti en cada auto ❤️
+        </p>
+
+    </div>
+
+
+    <div class="garage">
+
+
+        <!-- AUTO 1 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #01',
+            'imageimg/imageimghw1.jpg',
+            'Entre tantos caminos y tantas personas, me alegra muchísimo que el mío haya coincidido contigo. ❤️'
+        )">
+
+            <div class="numero">01</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw1.jpg"
+            alt="Hot Wheels 1">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                Algo pequeño para alguien especial
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+        <!-- AUTO 2 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #02',
+            'imageimg/imageimghw2.jpg',
+            'No necesito un auto rápido para querer llegar lejos; si es contigo, hasta el camino más largo se siente bonito. 💙'
+        )">
+
+            <div class="numero">02</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw2.jpg"
+            alt="Hot Wheels 2">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                Para compartir el camino
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+        <!-- AUTO 3 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #03',
+            'imageimg/imageimghw3.jpg',
+            'Hay personas que simplemente aparecen, y otras que sin darte cuenta terminan ocupando un lugar muy especial. Tú eres de esas. 💜'
+        )">
+
+            <div class="numero">03</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw3.jpg"
+            alt="Hot Wheels 3">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                Para alguien que se volvió especial
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+        <!-- AUTO 4 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #04',
+            'imageimg/imageimghw4.jpg',
+            'Si pudiera guardar momentos como se guardan estos Hot Wheels, tendría una colección entera de los momentos bonitos contigo. 🧡'
+        )">
+
+            <div class="numero">04</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw4.jpg"
+            alt="Hot Wheels 4">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                Una colección de recuerdos
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+        <!-- AUTO 5 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #05',
+            'imageimg/imageimghw5.jpg',
+            'Quizá esto solo sea un detalle virtual, pero detrás de cada autito hay una pequeña forma de decirte que me importas mucho. 💚'
+        )">
+
+            <div class="numero">05</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw5.jpg"
+            alt="Hot Wheels 5">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                No es solo un autito
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+        <!-- AUTO 6 -->
+
+        <div
+        class="tarjeta"
+        onclick="abrirMensaje(
+            'Hot Wheels #06',
+            'imageimg/imageimghw6.jpg',
+            'Y si llegaste hasta el último… solo quería recordarte algo: entre todos los detalles que podría elegir, mi favorito siempre será verte sonreír, Tomatito. ❤️'
+        )">
+
+            <div class="numero">06</div>
+
+            <img
+            class="foto-auto"
+            src="imageimg/imageimghw6.jpg"
+            alt="Hot Wheels 6">
+
+            <h3>Hot Wheels</h3>
+
+            <p>
+                El último, pero el más especial
+            </p>
+
+            <div class="ver">
+                TOCA PARA ABRIR
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CARRETERA
+========================= -->
+
+<div
+id="carretera"
+class="carretera"
+style="display:none;">
+
+    <div class="linea"></div>
+
+</div>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-contenido">
+
+        <img
+        id="modalImagen"
+        class="modal-imagen"
+        src=""
+        alt="Hot Wheels">
+
+        <h2 id="tituloModal">
+            Hot Wheels
+        </h2>
+
+        <p id="textoModal"></p>
+
+        <button
+        class="cerrar"
+        onclick="cerrarModal()">
+
+            Seguir viendo ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ABRIR COLECCIÓN */
+
+function abrirColeccion(){
+
+    document
+    .getElementById("inicio")
+    .classList
+    .add("oculto");
+
+
+    setTimeout(function(){
+
+        document
+        .getElementById("coleccion")
+        .classList
+        .remove("oculto");
+
+
+        document
+        .getElementById("carretera")
+        .style
+        .display="block";
+
+
+        crearParticulas();
+
+
+        setInterval(
+            crearCorazon,
+            900
+        );
+
+    },650);
+
+}
+
+
+/* ABRIR MENSAJE */
+
+function abrirMensaje(
+titulo,
+imagen,
+texto
+){
+
+    document
+    .getElementById("tituloModal")
+    .textContent=
+    titulo;
+
+
+    document
+    .getElementById("modalImagen")
+    .src=
+    imagen;
+
+
+    document
+    .getElementById("textoModal")
+    .textContent=
+    texto;
+
+
+    document
+    .getElementById("modal")
+    .classList
+    .add("activo");
+
+}
+
+
+/* CERRAR */
+
+function cerrarModal(){
+
+    document
+    .getElementById("modal")
+    .classList
+    .remove("activo");
+
+}
+
+
+/* PARTÍCULAS */
+
+function crearParticulas(){
+
+    for(let i=0; i<35; i++){
+
+        const particula=
+            document
+            .createElement("div");
+
+        particula.className=
+            "particula";
+
+        particula.style.left=
+            Math.random()*100
+            +"vw";
+
+        particula.style.animationDuration=
+            (
+                5+
+                Math.random()*7
+            )
+            +"s";
+
+        particula.style.animationDelay=
+            Math.random()*6
+            +"s";
+
+        document
+        .body
+        .appendChild(particula);
+
+    }
+
+}
+
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+    const elemento=
+        document
+        .createElement("div");
+
+    elemento.className=
+        "corazon";
+
+
+    const simbolos=[
+        "❤️",
+        "💙",
+        "💕",
+        "✨",
+        "🏎️"
+    ];
+
+
+    elemento.innerHTML=
+        simbolos[
+            Math.floor(
+                Math.random()
+                *
+                simbolos.length
+            )
+        ];
+
+
+    elemento.style.left=
+        Math.random()*100
+        +"vw";
+
+
+    elemento.style.animationDuration=
+        (
+            5+
+            Math.random()*3
+        )
+        +"s";
+
+
+    document
+    .body
+    .appendChild(elemento);
+
+
+    setTimeout(
+        function(){
+
+            elemento.remove();
+
+        },
+        9000
+    );
+
+}
+
+
+/* CERRAR AL TOCAR FUERA */
+
+document
+.getElementById("modal")
+.addEventListener(
+    "click",
+    function(e){
+
+        if(e.target===this){
+
+            cerrarModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
